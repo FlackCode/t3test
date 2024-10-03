@@ -9,6 +9,8 @@
 - [x] Attach a database to UI
 - [x] Add auth
 - [ ] Add image upload
+- [ ] taint (server-only)
+- [ ] Use Next/Image component
 - [ ] Error management
 - [ ] Routing/image page
 - [ ] Delete button
