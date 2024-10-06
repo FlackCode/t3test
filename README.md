@@ -11,7 +11,7 @@
 - [x] Add image upload
 - [x] taint (server-only)
 - [x] Use Next/Image component
-- [ ] Routing/image page
+- [x] Routing/image page
 - [ ] Delete button
 - [ ] Analytics
 - [ ] Ratelimiting
