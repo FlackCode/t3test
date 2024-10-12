@@ -13,5 +13,5 @@
 - [x] Use Next/Image component
 - [x] Routing/image page
 - [ ] Delete button
-- [ ] Analytics
+- [x] Analytics
 - [ ] Ratelimiting

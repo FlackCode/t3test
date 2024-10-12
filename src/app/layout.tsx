@@ -11,6 +11,8 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import React from "react";
 import { Toaster } from "~/components/ui/sonner";
+import { CSPostHogProvider } from "./_analytics/provider";
+
 
 export const metadata: Metadata = {
   title: "T3 Gallery",
@@ -25,20 +27,23 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode; modal: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable} dark`}>
-      <NextSSRPlugin
-          routerConfig={extractRouterConfig(ourFileRouter)}
-        />
-        <body className="">
-          <div className="h-screen grid grid-rows-[auto,1fr]">
-            <TopNav />
-            <main className="overflow-y-scroll">{children}</main>
-          </div>
-          {modal}
-          <div id="modal-root"></div>
-          <Toaster />
-        </body>
-      </html>
+      
+        <html lang="en" className={`${GeistSans.variable} dark`}>
+        <NextSSRPlugin
+            routerConfig={extractRouterConfig(ourFileRouter)}
+          />
+          <CSPostHogProvider>
+          <body className="">
+            <div className="h-screen grid grid-rows-[auto,1fr]">
+              <TopNav />
+              <main className="overflow-y-scroll">{children}</main>
+            </div>
+            {modal}
+            <div id="modal-root"></div>
+            <Toaster />
+          </body>
+          </CSPostHogProvider>
+        </html>
     </ClerkProvider>
   );
 }
